@@ -1,11 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>sudo-annan | Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPortfolio Pro | Creative Showcase</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-  <h1>Hello, I’m Annan 👋</h1>
-  <p>Welcome to my portfolio site hosted on GitHub Pages!</p>
+<body class="bg-dark text-primary font-sans">
+<custom-navbar></custom-navbar>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <section class="grid md:grid-cols-2 gap-12 items-center mb-24">
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    Hello, I'm <span class="text-accent">Alex</span>.
+                    <br>Minimalist Developer.
+                </h1>
+                <p class="text-lg text-secondary mt-4">
+I craft digital experiences and write about web technologies. 
+                    Passionate about design systems and interactive interfaces.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#projects" class="px-5 py-2.5 bg-accent text-white rounded hover:opacity-90 transition">
+                        View Projects
+                    </a>
+                    <a href="#blog" class="px-5 py-2.5 border border-gray-800 rounded hover:bg-gray-900 transition">
+Read Blog
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-2xl opacity-20 blur"></div>
+                <img src="http://static.photos/technology/640x360/42" alt="Profile" class="relative rounded-xl w-full h-auto shadow-xl">
+            </div>
+        </section>
+        <!-- Projects Section -->
+        <section id="projects" class="mb-24">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-2xl font-bold">Selected Work</h2>
+                <a href="projects.html" class="text-accent hover:opacity-80 flex items-center text-sm">
+View all <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Project Card 1 -->
+                <div class="card rounded-lg overflow-hidden">
+<img src="http://static.photos/minimal/640x360/1" alt="Project 1" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <h3 class="text-lg font-medium mb-2">E-Commerce</h3>
+                        <p class="text-secondary mb-4">Minimal online store with cart functionality.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-900 rounded text-xs">React</span>
+                            <span class="px-2 py-1 bg-gray-900 rounded text-xs">Node</span>
+                            <span class="px-2 py-1 bg-gray-900 rounded text-xs">MongoDB</span>
+                        </div>
+                        <a href="#" class="text-accent hover:opacity-80 flex items-center text-sm">
+View details <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="http://static.photos/technology/640x360/2" alt="Project 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Health Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Data visualization platform for healthcare metrics.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">D3.js</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">Vue</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">Firebase</span>
+                        </div>
+                        <a href="#" class="text-primary hover:underline flex items-center">
+                            View details <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <img src="http://static.photos/abstract/640x360/3" alt="Project 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Task Management App</h3>
+                        <p class="text-gray-600 mb-4">Collaborative tool with real-time updates and notifications.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">GraphQL</span>
+                            <span class="px-3 py-1 bg-primary-100 text-primary-800 rounded-full text-sm">PostgreSQL</span>
+                        </div>
+                        <a href="#" class="text-primary hover:underline flex items-center">
+                            View details <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="mb-24">
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold">Latest Articles</h2>
+                <a href="blog.html" class="text-primary hover:underline flex items-center">
+                    View all <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Blog Card 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-secondary-100 text-secondary-800 rounded-full text-sm">Design</span>
+                            <span class="text-gray-500 text-sm">May 15, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Designing for Accessibility</h3>
+                        <p class="text-gray-600 mb-4">How to create inclusive digital experiences that work for everyone, regardless of ability.</p>
+                        <a href="#" class="text-primary hover:underline flex items-center">
+                            Read article <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Blog Card 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                    <div class="p-6">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <span class="px-3 py-1 bg-secondary-100 text-secondary-800 rounded-full text-sm">Development</span>
+                            <span class="text-gray-500 text-sm">April 28, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">State Management in 2023</h3>
+                        <p class="text-gray-600 mb-4">Comparing the latest state management solutions for modern JavaScript frameworks.</p>
+                        <a href="#" class="text-primary hover:underline flex items-center">
+                            Read article <i data-feather="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 md:p-12 text-white mb-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+                    <p class="text-lg mb-6 opacity-90">
+                        With over 5 years of experience in web development, I specialize in creating beautiful, 
+                        functional interfaces that users love. My approach combines technical excellence with 
+                        thoughtful design.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="mr-2"></i>
+                            <span>UI/UX Design</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="mr-2"></i>
+                            <span>Frontend Development</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="mr-2"></i>
+                            <span>Accessibility</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="mr-2"></i>
+                            <span>Performance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative w-64 h-64">
+                        <div class="absolute inset-0 bg-white bg-opacity-20 rounded-2xl rotate-6"></div>
+                        <div class="absolute inset-0 bg-white bg-opacity-20 rounded-2xl -rotate-6"></div>
+                        <img src="http://static.photos/people/640x360/42" alt="Profile" class="relative rounded-2xl w-full h-full object-cover z-10">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="script.js"></script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
 </body>
 </html>
