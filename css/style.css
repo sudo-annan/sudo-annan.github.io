@@ -1,0 +1,143 @@
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    /* Base Colors for the Dark Theme (Inspired by the Projects section) */
+    --color-dark-bg: #0C0A1A; /* Very dark blue/purple */
+    --color-component-bg: #1A152E; /* Dark component background */
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-light-text: #E5E7EB; /* Light gray text */
+    --color-gray-text: #9CA3AF; /* Muted gray text */
+
+    /* Accent Colors (Based on the Blue/Purple gradient) */
+    --color-accent-blue: #3B82F6;
+    --color-accent-purple: #8B5CF6; 
+    --color-accent-indigo: #4F46E5;
+}
+
+/* 1. Global Background */
+.dark-bg {
+    background-color: var(--color-dark-bg);
+}
+
+/* 2. Gradient for the whole body/main sections */
+/* We will apply a subtle gradient overlay or a background image in a professional environment, 
+   but for CSS simplicity, we use the dark color and enhance elements. */
+
+/* 3. Global Styles */
+.section-spacing {
+    padding: 100px 0;
+}
+
+.border-light {
+    border-color: var(--color-border);
+}
+
+.text-gradient {
+    /* New, slightly more purple-heavy gradient */
+    background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hover-glow:hover {
+    /* Using the new accent color for glow */
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+}
+
+.nav-profile {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #04080f;
+    border-radius: 60%;
+    overflow: hidden;
+}
+
+/* 4. Typewriter / Hero Styles */
+.typewriter {
+    border-right: 2px solid var(--color-accent-blue);
+    animation: blink 1.2s infinite;
+    display: inline-block;
+    min-width: 2px;
+}
+
+@keyframes blink {
+    0%, 50% { border-color: var(--color-accent-blue); }
+    51%, 100% { border-color: transparent; }
+}
+
+/* 5. Experience Section Styles */
+.experience-item {
+    transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+    /* Subtle lift and shadow */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    background-color: #1A152E; /* Dark purple shade for hover */
+}
+
+#experienceModal {
+    backdrop-filter: blur(10px);
+}
+
+/* Smooth scroll for modal */
+#experienceModal > div {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent-blue) #1f2937;
+    background-color: var(--color-component-bg); /* Use new component background */
+}
+
+#experienceModal > div::-webkit-scrollbar {
+    width: 6px;
+}
+
+#experienceModal > div::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+#experienceModal > div::-webkit-scrollbar-thumb {
+    background: var(--color-accent-blue);
+    border-radius: 3px;
+}
+
+
+/* 6. Project Section Styles (Refining the existing styles) */
+.project-card {
+    background-color: #1A152E; /* Ensure card background uses the dark component color */
+    border: 1px solid rgba(139, 92, 246, 0.2); /* Soft purple border */
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1); /* Subtle purple shadow */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(5px);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    /* Stronger shadow using a purple/indigo color */
+    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.3);
+    border-color: rgba(79, 70, 229, 0.5);
+}
+
+.tab-button {
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    transform: translateY(-2px);
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Smooth image transitions */
+.project-card img {
+    transition: transform 0.7s ease;
+}

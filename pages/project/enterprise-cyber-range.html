@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Enterprise Cyber Range</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="dark-bg text-white pt-20">
+    <div id="navbar"></div> <main class="max-w-4xl mx-auto px-6 section-spacing">
+        <a href="../../index.html#projects" class="text-blue-400 hover:text-blue-300 flex items-center mb-10">
+            <i data-feather="arrow-left" class="w-5 h-5 mr-2"></i> Back to Projects
+        </a>
+
+        <h1 class="text-5xl font-extrabold mb-4 text-gradient">Enterprise Cyber Range</h1>
+        <p class="text-gray-400 text-lg mb-8">
+            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded text-sm">Dissertation Project</span>
+            <span class="ml-4">September 2024</span>
+        </p>
+
+        <img src="../../assets/projects/cyber-range-full.jpg" alt="Cyber Range Diagram" class="w-full rounded-xl mb-10 border border-light/50">
+
+        <div class="prose prose-invert max-w-none text-gray-300">
+            <h3>Overview</h3>
+            <p>
+                As part of my MSc. Cyber Security dissertation, I built a comprehensive red-blue team simulation lab designed to mimic a real-world enterprise network environment.
+            </p>
+            <h3>Technical Architecture</h3>
+            <ul>
+                <li>**Blue Team Stack:** Utilized **Wazuh SIEM** for real-time monitoring and event collection from endpoints running **Sysmon** and **Redline** for forensic data acquisition.</li>
+                <li>**Network:** Setup included Windows and Linux environments, **Active Directory** for authentication, and **pfSense** for firewall and network segmentation.</li>
+                <li>**Red Team Attacks:** Executed attacks using Kali Linux, **Metasploit**, Mimikatz, and nmap, meticulously mapping all techniques to the **MITRE ATT&CK framework**.</li>
+            </ul>
+            <h3>Conclusion</h3>
+            <p>
+                This project demonstrated end-to-end attack emulation, logging, forensic investigation, and defense readiness evaluation. It is a powerful tool for developing practical security skills and documenting detection gaps.
+            </p>
+        </div>
+    </main>
+
+    <div id="footer"></div> <script>
+        // Initialize Feather icons on this static page
+        feather.replace();
+    </script>
+</body>
+</html>

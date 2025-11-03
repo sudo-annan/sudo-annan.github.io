@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects & Blogs | Mohammed Annan</title>
+    <link rel="icon" type="image/png" href="../../icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="dark-bg text-white min-h-screen flex flex-col">
+
+    <header class="bg-[#1a152e] border-b border-gray-700/50 py-4 fixed top-0 left-0 right-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="../../index.html" class="text-2xl font-bold text-white hover:text-blue-400 transition-colors">Mohammed Annan</a>
+            <a href="../../index.html#projects" class="px-4 py-2 border border-gray-700 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors flex items-center">
+                <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i> Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-24 section-spacing">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-5xl font-extrabold mb-8 text-center text-white">Project Index</h1>
+            <p class="text-xl text-gray-400 text-center mb-16">A comprehensive look at my professional work, personal projects, and technical writings.</p>
+
+            <div class="flex justify-center mb-16">
+                <div id="project-tabs" class="flex p-2 bg-gradient-to-r from-[#211d33] to-[#1a142e] rounded-2xl border border-gray-700 shadow-xl shadow-indigo-900/50">
+                    <button data-filter="all" class="tab-button px-8 py-3 text-lg font-medium rounded-xl transition-all duration-300 flex items-center bg-[#463776] text-white">
+                        <i data-feather="grid" class="w-5 h-5 mr-3"></i> All
+                    </button>
+                    <button data-filter="project" class="tab-button px-8 py-3 text-gray-400 text-lg font-medium rounded-xl hover:bg-[#2c2447] transition-all duration-300 flex items-center ml-2">
+                        <i data-feather="code" class="w-5 h-5 mr-3"></i> Projects
+                    </button>
+                    <button data-filter="blog" class="tab-button px-8 py-3 text-gray-400 text-lg font-medium rounded-xl hover:bg-[#2c2447] transition-all duration-300 flex items-center ml-2">
+                        <i data-feather="edit-3" class="w-5 h-5 mr-3"></i> Blog
+                    </button>
+                </div>
+            </div>
+            
+            <div id="project-cards-container" class="grid lg:grid-cols-3 md:grid-cols-2 gap-10">
+                </div>
+        </div>
+    </main>
+
+    <div id="footer"></div> 
+    
+    <script src="../../js/projectData.js"></script> 
+    <script src="../../js/main.js"></script> <script>
+        // Duplicate Filtering Logic: 
+        // NOTE: This must be here to enable filtering on this static page.
+        function initializeProjectFiltering() {
+            const tabs = document.querySelectorAll('#project-tabs .tab-button');
+            const cards = document.querySelectorAll('#project-cards-container .project-card');
+            const activeClass = 'bg-[#463776] text-white'; 
+            const inactiveClass = 'text-gray-400 hover:bg-[#2c2447]'; 
+
+            if (cards.length === 0) return;
+
+            function activateTab(activeTab) {
+                tabs.forEach(tab => {
+                    inactiveClass.split(' ').forEach(cls => tab.classList.remove(cls));
+                    activeClass.split(' ').forEach(cls => tab.classList.remove(cls));
+                    tab.classList.add(...inactiveClass.split(' '));
+                });
+                activeTab.classList.add(...activeClass.split(' '));
+                activeTab.classList.remove(...inactiveClass.split(' '));
+            }
+
+            function filterCards(filter) {
+                cards.forEach(card => {
+                    card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+                });
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const filter = this.dataset.filter;
+                    activateTab(this);
+                    filterCards(filter);
+                });
+            });
+            
+            const initialTab = document.querySelector('#project-tabs .tab-button[data-filter="all"]');
+            if (initialTab) {
+                activateTab(initialTab);
+                filterCards('all');
+            }
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render all cards (null limit), using '../../' prefix for assets
+            initializeProjectSection(null, '../../'); 
+            
+            // Initialize filtering after cards are rendered
+            // Using setTimeout is good practice to ensure rendering is complete
+            setTimeout(() => {
+                initializeProjectFiltering(); 
+                feather.replace();
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<section id="projects-section" class="section-spacing border-t border-light">
+    <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-5xl font-extrabold mb-12 text-center text-white">My Work</h2>
+        
+        <div class="flex justify-center mb-16">
+            <div id="project-tabs" class="flex p-2 bg-gradient-to-r from-[#211d33] to-[#1a142e] rounded-2xl border border-gray-700 shadow-xl shadow-indigo-900/50">
+                <button data-filter="all" class="tab-button px-8 py-3 text-lg font-medium rounded-xl transition-all duration-300 flex items-center bg-[#463776] text-white">
+                    <i data-feather="grid" class="w-5 h-5 mr-3"></i> All
+                </button>
+                <button data-filter="project" class="tab-button px-8 py-3 text-gray-400 text-lg font-medium rounded-xl hover:bg-[#2c2447] transition-all duration-300 flex items-center ml-2">
+                    <i data-feather="code" class="w-5 h-5 mr-3"></i> Projects
+                </button>
+                <button data-filter="blog" class="tab-button px-8 py-3 text-gray-400 text-lg font-medium rounded-xl hover:bg-[#2c2447] transition-all duration-300 flex items-center ml-2">
+                    <i data-feather="edit-3" class="w-5 h-5 mr-3"></i> Blog
+                </button>
+            </div>
+        </div>
+
+        <div id="project-cards-container" class="grid lg:grid-cols-3 md:grid-cols-2 gap-10">
+            </div>
+
+        <div class="text-left mt-16">
+            <a href="pages/projects.html" class="px-6 py-2 border border-gray-700 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors duration-300 flex items-center w-max">
+                <span class="mr-2">See More</span>
+                <i data-feather="chevron-down" class="w-5 h-5"></i>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function initializeProjectFiltering() {
+        const tabs = document.querySelectorAll('#project-tabs .tab-button');
+        // NOTE: We select cards AFTER they have been dynamically injected
+        const cards = document.querySelectorAll('#project-cards-container .project-card');
+        const activeClass = 'bg-[#463776] text-white'; // Custom active class
+        const inactiveClass = 'text-gray-400 hover:bg-[#2c2447]'; // Custom inactive class
+
+        // If no cards are found (e.g., initial load or error), exit.
+        if (cards.length === 0) return;
+
+        function activateTab(activeTab) {
+            tabs.forEach(tab => {
+                inactiveClass.split(' ').forEach(cls => tab.classList.remove(cls));
+                activeClass.split(' ').forEach(cls => tab.classList.remove(cls));
+                
+                tab.classList.add(...inactiveClass.split(' '));
+            });
+            activeTab.classList.add(...activeClass.split(' '));
+            activeTab.classList.remove(...inactiveClass.split(' '));
+        }
+
+        function filterCards(filter) {
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.category === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                activateTab(this);
+                filterCards(filter);
+            });
+        });
+        
+        // Ensure initial state is 'all'
+        const initialTab = document.querySelector('#project-tabs .tab-button[data-filter="all"]');
+        if (initialTab) {
+            activateTab(initialTab);
+            filterCards('all');
+        }
+    }
+    
+    // Make filter initialization global to be called after component loading in main.js
+    window.initializeProjectFiltering = initializeProjectFiltering;
+</script>
