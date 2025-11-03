@@ -91,7 +91,7 @@ yarn-error.log*
 *.js 
 !/js/main.js 
 !/js/projectData.js
-!/js/typewriter.js   <--- ADD THIS LINE
+!/js/typewriter.js 
 *.d.ts
 
 # ... rest of file
