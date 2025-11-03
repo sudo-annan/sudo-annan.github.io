@@ -78,12 +78,23 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 
+# -------------------------------------------------------------------
+# JavaScript / TypeScript (CORRECTED)
+# -------------------------------------------------------------------
+# Generated metadata
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
 # TypeScript output
-*.js
-!/js/main.js # Keep main.js and any other source JS files
-!/js/projectData.js # Keep projectData.js
+*.js 
+!/js/main.js 
+!/js/projectData.js
+!/js/typewriter.js   <--- ADD THIS LINE
 *.d.ts
 
+# ... rest of file
 # -------------------------------------------------------------------
 # Configuration & Secrets
 # -------------------------------------------------------------------
